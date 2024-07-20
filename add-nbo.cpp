@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <arpa/inet.h>
+#include <stdlib.h>
 
 uint32_t read_file(const char* filename){
     FILE* file = fopen(filename, "r");
@@ -16,6 +17,7 @@ uint32_t read_file(const char* filename){
         printf("File must be exactly 4 bytes long\n");
 
         fclose(file);
+		exit(0);
         return 0;
     }
     fseek(file, 0, SEEK_SET);
